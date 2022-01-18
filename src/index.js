@@ -4,7 +4,7 @@ const fetch = (...args) => import('node-fetch')
 
 exports.handler = async (event) => {
     // CORS
-    if (event.method == 'OPTIONS') {
+    if (event.requestContext.http.method == 'OPTIONS') {
         return {
             statusCode: 200,
             headers: {
