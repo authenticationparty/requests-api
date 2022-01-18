@@ -4,11 +4,21 @@ const fetch = (...args) => import('node-fetch')
 
 exports.handler = async (event) => {
     // CORS
+    if (event.headers.origin != 'http://localhost:3000' && event.headers.origin != 'https://requests.auth.party') {
+        return {
+            statusCode: 403,
+            body: {
+                success: false,
+                error: 'Forbidden',
+            }
+        }
+    }
+
     if (event.requestContext.http.method == 'OPTIONS') {
         return {
             statusCode: 200,
             headers: {
-                'Access-Control-Allow-Origin': 'https://requests.auth.party',
+                'Access-Control-Allow-Origin': event.headers.origin,
                 'Access-Control-Allow-Methods': 'POST',
                 'Access-Control-Allow-Headers': 'Content-Type',
             }
