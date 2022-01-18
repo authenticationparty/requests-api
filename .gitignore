@@ -1,0 +1,6 @@
+# Not needed
+src/node_modules/*
+*.zip
+
+# Credentials
+authparty_accessKeys.csv

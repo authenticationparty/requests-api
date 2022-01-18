@@ -1,0 +1,39 @@
+{
+    "version": "2.0",
+    "routeKey": "GET /usa",
+    "rawPath": "/usa",
+    "rawQueryString": "",
+    "headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate, br",
+      "content-length": "17",
+      "content-type": "application/json",
+      "host": "aws.requests.auth.party",
+      "test": "123",
+      "user-agent": "Thunder Client (https://www.thunderclient.io)",
+      "x-amzn-trace-id": "Root=1-61e4cbb8-0e3ca8497809810375ffac2e",
+      "x-forwarded-for": "186.54.154.45",
+      "x-forwarded-port": "443",
+      "x-forwarded-proto": "https"
+    },
+    "requestContext": {
+      "accountId": "658274243796",
+      "apiId": "0n0j4d7iu4",
+      "domainName": "aws.requests.auth.party",
+      "domainPrefix": "aws",
+      "http": {
+        "method": "GET",
+        "path": "/usa",
+        "protocol": "HTTP/1.1",
+        "sourceIp": "186.54.154.45",
+        "userAgent": "Thunder Client (https://www.thunderclient.io)"
+      },
+      "requestId": "METEzi8zyK4EJpQ=",
+      "routeKey": "GET /usa",
+      "stage": "$default",
+      "time": "17/Jan/2022:01:51:52 +0000",
+      "timeEpoch": 1642384312183
+    },
+    "body": "{\"gaming\": \"pro\"}",
+    "isBase64Encoded": false
+  }

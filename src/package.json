@@ -1,0 +1,27 @@
+{
+  "name": "authpartyproxy",
+  "version": "1.0.0",
+  "description": "Auth.Party Proxy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/authparty/server-proxy-lambda.git"
+  },
+  "keywords": [
+    "lambda",
+    "proxy",
+    "nodejs"
+  ],
+  "author": "Valentino Berta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/authparty/server-proxy-lambda/issues"
+  },
+  "homepage": "https://github.com/authparty/server-proxy-lambda#readme",
+  "dependencies": {
+    "node-fetch": "^3.1.0"
+  }
+}
