@@ -1,8 +1,12 @@
 const fetch = (...args) => import('node-fetch')
               .then(({default: fetch}) => fetch(...args));
 
-
 exports.handler = async (event) => {
+    const corsHeaders = {
+        'Access-Control-Allow-Origin': event.headers.origin,
+        'Access-Control-Allow-Methods': 'POST',
+        'Access-Control-Allow-Headers': 'Content-Type',
+    }
     // CORS
     if (event.headers.origin != 'http://localhost:3000' && event.headers.origin != 'https://requests.auth.party') {
         return {
@@ -17,18 +21,14 @@ exports.handler = async (event) => {
     if (event.requestContext.http.method == 'OPTIONS') {
         return {
             statusCode: 200,
-            headers: {
-                'Access-Control-Allow-Origin': event.headers.origin,
-                'Access-Control-Allow-Methods': 'POST',
-                'Access-Control-Allow-Headers': 'Content-Type',
-            }
+            headers: corsHeaders,
         }
     }
     
-    // TODO implement
     if (!event.body) {
         return {
             statusCode: 400,
+            headers: corsHeaders,
             body: JSON.stringify({
                 success: false,
                 message: 'Missing body',
@@ -48,6 +48,7 @@ exports.handler = async (event) => {
     
     return {
         statusCode: 200,
+        headers: corsHeaders,
         body: JSON.stringify({
             event,
             success: true,
