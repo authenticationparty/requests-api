@@ -38,7 +38,7 @@ exports.handler = async (event) => {
 
     const body = JSON.parse(event.body);
 
-    const time = new Date().getTime(); // Unix timestamp in milliseconds
+    const timeStrt = new Date().getTime(); // Unix timestamp in milliseconds
     const rdata = await fetch(body.url || `https://api64.ipify.org/?format=json`, {
         method: body.method || 'GET',
         headers: body.headers || {
@@ -46,6 +46,7 @@ exports.handler = async (event) => {
         },
         body: body.body || null,
     })
+    const timeEnd = new Date().getTime(); // Unix timestamp in milliseconds
     
     return {
         statusCode: 200,
@@ -58,7 +59,7 @@ exports.handler = async (event) => {
                 body: await rdata.text(),
                 redirect: rdata.redirected,
                 size: rdata.bodyUsed ? rdata.bodyUsed.length : 0,
-                took: new Date().getTime() - time,
+                took: timeEnd - timeStart,
             }
         } || {}),
     };
