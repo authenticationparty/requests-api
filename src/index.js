@@ -58,7 +58,6 @@ exports.handler = async (event) => {
                 headers: rdata.headers,
                 body: await rdata.text(),
                 redirect: rdata.redirected,
-                size: rdata.bodyUsed ? rdata.bodyUsed.length : 0,
                 took: timeEnd - timeStart,
             }
         } || {}),
