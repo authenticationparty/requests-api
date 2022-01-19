@@ -38,7 +38,8 @@ exports.handler = async (event) => {
 
     const body = JSON.parse(event.body);
 
-    const rdata = await fetch(body.url || `https://auth.party/example`, {
+    const time = new Date().getTime(); // Unix timestamp in milliseconds
+    const rdata = await fetch(body.url || `https://api64.ipify.org/?format=json`, {
         method: body.method || 'GET',
         headers: body.headers || {
             'User-Agent': 'AuthPartyProxyClient'
@@ -56,7 +57,8 @@ exports.handler = async (event) => {
                 headers: rdata.headers,
                 body: await rdata.text(),
                 redirect: rdata.redirected,
-                size: rdata.bodyUsed ? rdata.bodyUsed.size : 0,
+                size: rdata.bodyUsed ? rdata.bodyUsed.length : 0,
+                took: new Date().getTime() - time,
             }
         } || {}),
     };
