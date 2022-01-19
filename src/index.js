@@ -50,7 +50,6 @@ exports.handler = async (event) => {
         statusCode: 200,
         headers: corsHeaders,
         body: JSON.stringify({
-            event,
             success: true,
             data: {
                 status: rdata.status,
