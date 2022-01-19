@@ -38,7 +38,7 @@ exports.handler = async (event) => {
 
     const body = JSON.parse(event.body);
 
-    const timeStrt = new Date().getTime(); // Unix timestamp in milliseconds
+    const timeStart = new Date().getTime(); // Unix timestamp in milliseconds
     const rdata = await fetch(body.url || `https://api64.ipify.org/?format=json`, {
         method: body.method || 'GET',
         headers: body.headers || {
