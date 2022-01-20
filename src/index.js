@@ -54,9 +54,12 @@ exports.handler = async (event) => {
         body: JSON.stringify({
             success: true,
             data: {
+                ok: response.ok,
                 status: rdata.status,
-                headers: rdata.headers,
-                body: await rdata.text(),
+                statusText: rdata.statusText,
+                contentType: response.headers.get('content-type'),
+                headers: rdata.headers.raw(),
+                body: response.ok ? await rdata.text() : null,
                 redirect: rdata.redirected,
                 took: timeEnd - timeStart,
             }
